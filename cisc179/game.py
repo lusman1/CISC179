@@ -2,7 +2,7 @@
 import random
 class Game:
     def __init__(self, word_to_guess):
-        self.lives_remaining = 5
+        self.lives_remaining = 6
         self.word_to_guess = word_to_guess # self.word_list = word_list from another file & .get_random_word() from file
         self.wrong_guesses = []
         self.fill_in_blank = ["_"] * len(self.word_to_guess)
