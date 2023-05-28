@@ -48,3 +48,51 @@ class Game:
 
     def has_lost(self):
         return self.lives_remaining == 0
+
+
+def createGame(input):
+    game = Game(input)
+    print("lives: " + str(game.get_lives()))
+    print("blanks: " + game.get_fill_in_blanks())
+    return game
+def doTurn(game, input):
+    print("\n************************************ user input: ", input)
+    try:
+        game.process_input(input)
+        check_win_or_loss(game)
+    except ValueError as e:
+        print(str(e))
+    print("You have {} lives left.".format(game.get_lives()))
+    print(game.get_fill_in_blanks())
+    print("Wrong guesses: " + game.get_wrong_guesses())
+    # return
+
+def check_win_or_loss(game):
+    if game.has_won():
+        print("yayyyy!!! you won!")
+        exit()
+    elif game.has_lost():
+        print("boooo!!! you lost!")
+        exit()
+
+game = createGame("msousse")
+
+# win test
+# doTurn(game, "s")
+# doTurn(game, "m")
+# doTurn(game, "o")
+# doTurn(game, "u")
+# doTurn(game, "e")
+# print("should not print this beause game has ended")
+
+# lose test
+doTurn(game, "s")
+doTurn(game, "q")
+doTurn(game, "hh")
+doTurn(game, "t")
+doTurn(game, "t")
+doTurn(game, "y")
+doTurn(game, "j")
+doTurn(game, "i")
+
+doTurn(game, "ts")
