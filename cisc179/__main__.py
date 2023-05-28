@@ -1,6 +1,6 @@
 """Entry point for cisc179."""
 
-from .cli import main  # pragma: no cover
+import cli
 
-if __name__ == "__main__":  # pragma: no cover
-    main()
+# if __name__ == "__main__":  # pragma: no cover
+    # main()
